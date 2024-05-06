@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 font-sans;
+  }
+  h1 {
+    @apply text-4xl font-semibold tracking-tight;
+  }
+  input,
+  textarea {
+    @apply text-sm resize-none w-full px-3 rounded-lg py-2 border-2 border-slate-100 focus:outline-none focus:border-slate-400 shadow-md shadow-slate-100 transition duration-200;
+  }
+  button {
+    @apply text-sm w-full px-3 py-2 font-medium bg-slate-900 hover:bg-slate-700 text-white rounded-lg transition duration-200;
+  }
+}

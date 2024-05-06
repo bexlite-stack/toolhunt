@@ -1,7 +1,13 @@
 import { Elysia } from "elysia";
+import { html } from "@elysiajs/html";
+import staticPlugin from "@elysiajs/static";
+import { platformRouter } from "./routers/platformRouter";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
-
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+const app = new Elysia()
+  // Plugin
+  .use(staticPlugin())
+  .use(html())
+  // Routers
+  .use(platformRouter)
+  // Port
+  .listen(3000);
