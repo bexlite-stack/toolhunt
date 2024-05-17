@@ -17,6 +17,7 @@ export function handleGetTools({ body }: Context) {
             tool.description, 
             tool.image,
             tool.url,
+            tool.category,
             tool.verified,
             tool.public,
             analytic.toolId AS toolId,
@@ -30,7 +31,7 @@ export function handleGetTools({ body }: Context) {
             AND tool.public = 1;
       `);
   const allTools = dbQuery.all(`%${query}%`, `%${query}%`) as ITool[];
-
+  console.log(allTools);
   return (
     <>
       {allTools.map((item) => {
@@ -41,14 +42,14 @@ export function handleGetTools({ body }: Context) {
 }
 
 export async function handleSubmission({ body }: Context) {
-  const { name, image, url, description } = body as any;
+  const { name, image, url, description, category } = body as any;
   const toolId = ulid();
   const analyticId = ulid();
 
   await Bun.write(`./public/tools/${toolId}/${image.name}`, image);
 
   try {
-    db.query("INSERT INTO tool (id, name, description, image, url) VALUES (?,?,?,?,?)").run(toolId, name, description, image.name, url);
+    db.query("INSERT INTO tool (id, name, description, category, image, url) VALUES (?,?,?,?,?,?)").run(toolId, name, description, category, image.name, url);
     db.query("INSERT INTO analytic (id, toolId, visit) VALUES (?,?,?)").run(analyticId, toolId, 0);
   } catch (error) {
     console.log(error);

@@ -8,6 +8,7 @@ import { db } from "./db";
             description TEXT NOT NULL,
             url TEXT NOT NULL,
             image TEXT,
+            category TEXT,
             verified INTEGER DEFAULT 0,
             public INTEGER DEFAULT 0
        );

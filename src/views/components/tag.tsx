@@ -13,5 +13,5 @@ export const Tag = ({ tag }: TagProps) => {
     return <div class="bg-sky-900/20  text-sky-500 px-2 py-1 rounded w-fit  text-xs font-medium">premium</div>;
   }
 
-  return <div class="bg-orange-900/20  text-orange-500 px-2 py-1 rounded w-fit  text-xs font-medium">freemium</div>;
+  return <div class="bg-indigo-900/20  text-indigo-500 px-2 py-1 rounded w-fit  text-xs font-medium">open sources</div>;
 };
