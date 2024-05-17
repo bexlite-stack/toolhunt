@@ -16,8 +16,8 @@ export const Home = () => {
           <div class="px-4 py-1 text-sm bg-slate-200 text-slate-950 border border-slate-800 font-medium tracking-tight rounded-full w-fit">
             Introducing Toolhunt
           </div>
-          <h1 class="px-32">Discover the beneficial tools for your developments</h1>
-          <p>High quality devtools and Resources that help you ship faster</p>
+          <h1 class="lg:px-32">Discover the beneficial tools for your developments</h1>
+          <p class="px-24 lg:px-0">High quality devtools and Resources that help you ship faster</p>
           <input
             name="q"
             placeholder="search tools..."
@@ -28,7 +28,7 @@ export const Home = () => {
             hx-trigger="keyup delay:500ms"
           />
         </section>
-        <section hx-post="/tools" hx-trigger="load" id="tools" class="grid grid-cols-3 gap-8"></section>
+        <section hx-post="/tools" hx-trigger="load" id="tools" class="grid grid-cols-1 lg:grid-cols-3 gap-8"></section>
       </main>
     </BaseHtml>
   );

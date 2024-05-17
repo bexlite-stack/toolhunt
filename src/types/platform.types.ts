@@ -5,4 +5,5 @@ export interface ITool {
   url: string;
   image: string;
   visit: number;
+  verified: number;
 }

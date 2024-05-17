@@ -7,7 +7,7 @@
     @apply bg-slate-950 text-slate-100 font-sans;
   }
   h1 {
-    @apply text-5xl font-semibold tracking-tight;
+    @apply text-4xl lg:text-5xl font-semibold tracking-tight;
   }
   h2 {
     @apply text-4xl font-semibold tracking-tight;
@@ -30,7 +30,7 @@
   input,
   textarea,
   select {
-    @apply text-sm font-medium placeholder:font-normal placeholder:text-slate-600 resize-none w-full px-4 rounded-lg py-3 border-2 bg-transparent border-slate-800 focus:outline-none focus:border-slate-400 transition duration-200;
+    @apply bg-slate-900 text-sm font-medium placeholder:font-normal placeholder:text-slate-600 resize-none w-full px-4 rounded-lg py-3 border-2 bg-transparent border-slate-800 focus:outline-none focus:border-slate-400 transition duration-200;
   }
   button {
     @apply text-sm w-full px-3 py-2 font-medium bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-lg transition duration-200;
