@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  toolhunt:
+    build: .
+    ports:
+      - "3010:3010"
+    volumes:
+      - publicdata:/app/public
+      - db:/app/src/models
+
+volumes:
+  publicdata:
+  db:

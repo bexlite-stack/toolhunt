@@ -16,6 +16,8 @@ export function handleGetTools({ body }: Context) {
             tool.description, 
             tool.image,
             tool.url,
+            tool.verified,
+            tool.public,
             analytic.toolId AS toolId,
             analytic.visit
         FROM 
@@ -23,9 +25,10 @@ export function handleGetTools({ body }: Context) {
         JOIN 
             analytic ON tool.id = analytic.toolId
         WHERE
-            tool.name LIKE ?;
+            (tool.name LIKE ? OR tool.description LIKE ?)
+            AND tool.public = 1;
       `);
-  const allTools = dbQuery.all(`%${query}%`) as ITool[];
+  const allTools = dbQuery.all(`%${query}%`, `%${query}%`) as ITool[];
 
   return (
     <>
@@ -43,8 +46,12 @@ export async function handleSubmission({ body }: Context) {
 
   await Bun.write(`./public/tools/${toolId}/${image.name}`, image);
 
-  db.query("INSERT INTO tool (id, name, description, image, url) VALUES (?,?,?,?,?)").run(toolId, name, description, image.name, url);
-  db.query("INSERT INTO analytic (id, toolId, visit) VALUES (?,?,?)").run(analyticId, toolId, 0);
+  try {
+    db.query("INSERT INTO tool (id, name, description, image, url) VALUES (?,?,?,?,?)").run(toolId, name, description, image.name, url);
+    db.query("INSERT INTO analytic (id, toolId, visit) VALUES (?,?,?)").run(analyticId, toolId, 0);
+  } catch (error) {
+    console.log(error);
+  }
 
   return new Response(null, {
     headers: {

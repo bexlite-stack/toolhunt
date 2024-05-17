@@ -9,5 +9,11 @@ const app = new Elysia()
   .use(html())
   // Routers
   .use(platformRouter)
+  .get("/images/:id/:filename", ({ params }) => {
+    const file = Bun.file(`./public/tools/${params.id}/${params.filename}`);
+    return file;
+  })
   // Port
-  .listen(3000);
+  .listen(3010);
+
+console.log("Running", new Date());

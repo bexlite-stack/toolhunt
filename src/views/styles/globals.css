@@ -4,16 +4,35 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 font-sans;
+    @apply bg-slate-950 text-slate-100 font-sans;
   }
   h1 {
+    @apply text-5xl font-semibold tracking-tight;
+  }
+  h2 {
     @apply text-4xl font-semibold tracking-tight;
   }
+  h3 {
+    @apply text-3xl font-semibold tracking-tight;
+  }
+  h4 {
+    @apply text-2xl font-semibold tracking-tight;
+  }
+  h5 {
+    @apply text-xl font-semibold tracking-tight;
+  }
+  h6 {
+    @apply text-lg font-semibold tracking-tight;
+  }
+  p {
+    @apply text-slate-400;
+  }
   input,
-  textarea {
-    @apply text-sm resize-none w-full px-3 rounded-lg py-2 border-2 border-slate-100 focus:outline-none focus:border-slate-400 shadow-md shadow-slate-100 transition duration-200;
+  textarea,
+  select {
+    @apply text-sm font-medium placeholder:font-normal placeholder:text-slate-600 resize-none w-full px-4 rounded-lg py-3 border-2 bg-transparent border-slate-800 focus:outline-none focus:border-slate-400 transition duration-200;
   }
   button {
-    @apply text-sm w-full px-3 py-2 font-medium bg-slate-900 hover:bg-slate-700 text-white rounded-lg transition duration-200;
+    @apply text-sm w-full px-3 py-2 font-medium bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-lg transition duration-200;
   }
 }
