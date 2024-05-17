@@ -1,7 +1,7 @@
 import { ITool } from "../../types/platform.types";
 import { Tag } from "./tag";
 
-export const Toolcard = ({ id, name, description, url, image, visit, verified }: ITool) => {
+export const Toolcard = ({ id, name, description, url, category, image, visit, verified }: ITool) => {
   return (
     <div class="relative border-2 border-slate-900 hover:border-slate-800 bg-slate-950 rounded-xl overflow-hidden transition duration-150">
       <div class="h-20 bg-slate-900/50 border-b border-slate-800">
@@ -15,7 +15,7 @@ export const Toolcard = ({ id, name, description, url, image, visit, verified }:
             </svg>
             {visit || 0}
           </div>
-          <Tag tag="free" />
+          <Tag tag={category} />
         </div>
       </div>
       <div class="ml-6 -mt-10">
