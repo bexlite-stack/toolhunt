@@ -6,4 +6,5 @@ export interface ITool {
   image: string;
   visit: number;
   verified: number;
+  public: number;
 }

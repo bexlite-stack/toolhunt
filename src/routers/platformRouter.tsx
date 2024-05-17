@@ -1,7 +1,17 @@
 import { Elysia } from "elysia";
 import { Home } from "../views/pages/home";
 import { Submission } from "../views/pages/submission";
-import { handleGetTools, handleRedirect, handleSubmission } from "../controllers/platform.controllers";
+import {
+  handleDeleteTool,
+  handleGetTools,
+  handleGetToolsAdmin,
+  handlePublishTool,
+  handleRedirect,
+  handleSubmission,
+  handleUnpublishTool,
+  handleUnverifyTool,
+  handleVerifyTool,
+} from "../controllers/platform.controllers";
 
 export const platformRouter = new Elysia()
   // Interface
@@ -11,4 +21,10 @@ export const platformRouter = new Elysia()
   // Functionality
   .get("/redirect", handleRedirect)
   .post("/tools", handleGetTools)
-  .post("/submission", handleSubmission);
+  .post("/submission", handleSubmission)
+  .get("/hardwork", handleGetToolsAdmin)
+  .patch("/hardwork/publish", handlePublishTool)
+  .patch("/hardwork/unpublish", handleUnpublishTool)
+  .patch("/hardwork/verify", handleVerifyTool)
+  .patch("/hardwork/unverify", handleUnverifyTool)
+  .delete("/hardwork/delete", handleDeleteTool);
